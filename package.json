@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "start": "node ./node_modules/salsa-express/start.js public/"
+    },
+    "dependencies": {
+        "salsa-express": "github:radjivc/salsa-express"
+    }
+}
