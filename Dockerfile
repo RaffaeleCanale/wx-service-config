@@ -1,9 +1,14 @@
 FROM node
-WORKDIR /etc/wxcs/
+WORKDIR /etc/wx/
 
-COPY package*.json ./
+COPY src/ src/
+COPY package*.json .babelrc ./
 
-RUN npm install
+# There exists a bug that requires to build twice
+RUN npm install && \
+    npm run build && \
+    npm run build
 
-EXPOSE 4567
+COPY config.json ./
+
 CMD ["npm", "start"]
