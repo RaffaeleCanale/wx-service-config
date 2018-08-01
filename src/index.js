@@ -10,7 +10,7 @@ import initializeDb from 'db';
 import middleware from 'middleware';
 import api from 'api';
 
-import config from '../config.json';
+import fileConfig from '../config.json';
 
 const configSchema = Joi.object().required().keys({
     server: Joi.object().required().keys({
@@ -25,11 +25,20 @@ const configSchema = Joi.object().required().keys({
     }),
 });
 
-const { error } = Joi.validate(config, configSchema);
+if (process.argv.indexOf('--help') >= 0) {
+    console.log(`
+    Usage:
+    npm run start
+    `);
+    process.exit(0);
+}
+
+const { error, value } = Joi.validate(fileConfig, configSchema);
 if (error) {
     Logger.error(error);
     process.exit(1);
 }
+const config = value;
 
 const app = express();
 app.server = http.createServer(app);
