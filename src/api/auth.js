@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import Joi from 'joi';
 import jwt from 'jsonwebtoken';
 import { getLogger } from 'js-utils/logger';
+import * as paths from 'utils/paths';
 
 import { validateBody } from 'middleware/validator';
 
@@ -31,6 +32,13 @@ export default (route, { config }) => {
         post: [
             validateBody(loginSchema),
             function post({ body }, res) {
+                for (let i = 0; i < body.domains.length; i += 1) {
+                    const domain = body.domains[i];
+                    if (!paths.isValidDomain(domain)) {
+                        return res.status(400).send(`Invalid domain: ${domain}`);
+                    }
+                }
+
                 return bcrypt.compare(config.auth.password, body.hash)
                     .then((matches) => {
                         if (matches) {

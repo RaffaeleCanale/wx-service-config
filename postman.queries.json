@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "910bfd32-4e9c-4740-b1af-12e4b9dbceec",
+		"name": "Config",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/login/token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"hash\": \"???\",\n\t\"domains\": [\"test\", \"all\"]\n}"
+				},
+				"url": {
+					"raw": "{{configApi}}/api/login/token",
+					"host": [
+						"{{configApi}}"
+					],
+					"path": [
+						"api",
+						"login",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/config",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{configToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{configApi}}/api/config?file=test2.txt&path=wx-client-config&version=0",
+					"host": [
+						"{{configApi}}"
+					],
+					"path": [
+						"api",
+						"config"
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": "test2.txt"
+						},
+						{
+							"key": "path",
+							"value": "wx-client-config"
+						},
+						{
+							"key": "domain",
+							"value": "all",
+							"disabled": true
+						},
+						{
+							"key": "version",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/config/versions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{configToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{configApi}}/api/config/versions?file=test2.txt&path=wx-client-config",
+					"host": [
+						"{{configApi}}"
+					],
+					"path": [
+						"api",
+						"config",
+						"versions"
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": "test2.txt"
+						},
+						{
+							"key": "path",
+							"value": "wx-client-config"
+						},
+						{
+							"key": "domain",
+							"value": "all",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/config",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{configToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"path\": \"wx-client-config\",\n\t\"file\": \"hello.txt\",\n\t\"content\": \"TEST foobar new new\",\n\t\"domain\": \"all\"\n}"
+				},
+				"url": {
+					"raw": "{{configApi}}/api/config?file=config.json&path=./wx-service-config",
+					"host": [
+						"{{configApi}}"
+					],
+					"path": [
+						"api",
+						"config"
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": "config.json"
+						},
+						{
+							"key": "path",
+							"value": "./wx-service-config"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
