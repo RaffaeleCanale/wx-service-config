@@ -15,7 +15,7 @@ export function getBackupFile(parent, name, domain, version) {
     return path.join(
         ROOT,
         parent,
-        `.v${version}.${domain}.${name}`
+        `.${domain}.${name}.v${version}`
     );
 }
 
