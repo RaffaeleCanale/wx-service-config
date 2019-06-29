@@ -2,9 +2,9 @@ import { Router } from 'express';
 import jwt from 'express-jwt';
 import unless from 'express-unless';
 
-function exceptPath(middleware, path) {
+function exceptPath(middleware, paths) {
     middleware.unless = unless; // eslint-disable-line
-    return middleware.unless({ path: [path] });
+    return middleware.unless({ path: paths });
 }
 
 export default ({ config }) => {
@@ -12,7 +12,7 @@ export default ({ config }) => {
 
     if (config.auth) {
         const auth = jwt({ secret: config.auth.secret });
-        routes.use(exceptPath(auth, '/api/login/token'));
+        routes.use(exceptPath(auth, ['/api/login/token', '/api/healthcheck']));
     }
 
     return routes;

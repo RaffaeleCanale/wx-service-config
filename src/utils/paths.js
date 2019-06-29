@@ -31,6 +31,10 @@ export function isValidDomain(domain) {
     return domain && domain !== '' && !domain.includes('.');
 }
 
+export function getRoot() {
+    return ROOT;
+}
+
 const aliasesConfig = path.join(ROOT, 'aliases.json');
 if (fs.existsSync(aliasesConfig)) {
     aliases = JSON.parse(fs.readFileSync(aliasesConfig, 'utf8'));
