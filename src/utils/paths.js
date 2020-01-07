@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 // TODO Use config for this stuff
-const ROOT = './public';
+export const ROOT = './public';
 
 let aliases = {};
 

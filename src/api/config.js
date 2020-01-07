@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import * as paths from 'utils/paths';
 // import { getLogger } from 'js-utils/logger';
+import * as files from 'utils/files';
 
 import { validateQuery, validateBody } from 'middleware/validator';
 
@@ -83,7 +84,7 @@ export default (route) => {
                     return res.status(404).send();
                 }
 
-                const content = fs.readFileSync(file, 'utf8');
+                const content = files.readFile(file);
                 return res.send({ content, file });
             },
         ],
@@ -105,7 +106,7 @@ export default (route) => {
                     backupFile(body.path, body.file, body.domain);
                 }
 
-                fs.writeFileSync(file, body.content, 'utf8');
+                files.writeFile(file, body.content);
                 return res.send({ file });
             },
         ],
