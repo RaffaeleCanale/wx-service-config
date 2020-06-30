@@ -29,7 +29,7 @@
         "cors": "^2.8.4",
         "express": "^4.16.3",
         "express-fileupload": "^0.4.0",
-        "express-jwt": "^5.3.1",
+        "express-jwt": "^6.0.0",
         "express-unless": "^0.5.0",
         "joi": "^13.1.2",
         "js-utils": "git://github.com/RaffaeleCanale/js-utils.git#4d1c68ba54e388b0aff49c1f40d194d239d566e0",
