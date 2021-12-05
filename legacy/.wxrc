@@ -1,0 +1,6 @@
+{
+    "project": "wx-service-config",
+    "config": [
+        "config.json"
+    ]
+}

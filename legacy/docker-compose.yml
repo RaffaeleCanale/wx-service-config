@@ -1,0 +1,8 @@
+wx-service-config:
+    build: .
+    ports:
+        - "51200:51200"
+    volumes:
+        - /media/QNAP_Services/wx-service-config/:/etc/wx/public
+    environment:
+        - TZ=Europe/Zurich

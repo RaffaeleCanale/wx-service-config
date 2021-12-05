@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+    wx-service-config:
+        build: .
+        ports:
+            - '4848:4848'
+        volumes:
+            - /media/QNAP_Services/Config/:/media/QNAP_Services/Config/
+        environment:
+            - TZ=Europe/Zurich

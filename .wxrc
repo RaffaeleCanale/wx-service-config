@@ -1,0 +1,9 @@
+{
+    "project": "scripts-qnap",
+    "executable": {
+        "name": "qnap"
+    },
+    "config": [
+        "config.json"
+    ]
+}
