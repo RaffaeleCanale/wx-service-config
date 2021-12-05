@@ -1,8 +1,5 @@
 {
-    "project": "scripts-qnap",
-    "executable": {
-        "name": "qnap"
-    },
+    "project": "wx-service-config",
     "config": [
         "config.json"
     ]
