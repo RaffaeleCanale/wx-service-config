@@ -1,5 +1,6 @@
 {
     "project": "wx-service-config",
+    "type": "docker",
     "config": [
         "config.json"
     ]
