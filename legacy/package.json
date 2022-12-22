@@ -33,7 +33,7 @@
         "express-unless": "^0.5.0",
         "joi": "^13.1.2",
         "js-utils": "git://github.com/RaffaeleCanale/js-utils.git#4d1c68ba54e388b0aff49c1f40d194d239d566e0",
-        "jsonwebtoken": "^8.2.0",
+        "jsonwebtoken": "^9.0.0",
         "lodash": "^4.17.5",
         "morgan": "^1.9.0"
     }
